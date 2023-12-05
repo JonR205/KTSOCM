@@ -6,8 +6,8 @@ import useDataslateStore from '../stores/dataslateStore.ts'
 const Dashboard = () => {
   const [showNewDataslateModal, setshowNewDataslateModal] = useState(false)
 
-  const dataslates = useDataslateStore((state) => state.dataslates)
-  const gatDataslates = useDataslateStore((state) => state.getDataslates)
+  // const dataslates = useDataslateStore((state) => state.dataslates)
+  // const gatDataslates = useDataslateStore((state) => state.getDataslates)
 
   const showModal = () => {
     setshowNewDataslateModal(true)
@@ -18,7 +18,7 @@ const Dashboard = () => {
   }
 
   useEffect(() => {
-    gatDataslates()
+    // gatDataslates()
   }, [])
 
   return (

@@ -82,6 +82,7 @@ export const getDataslates = async (): Promise<ApiResponse<Dataslate[]>> => {
       data: data.map((data) => ({
         ...data.json,
         id: data.id,
+        created_at: data.created_at,
       })),
     }
   } catch (e) {

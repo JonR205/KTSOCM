@@ -8,11 +8,16 @@ import Dataslate from './pages/Dataslate'
 import NewDataslate from './pages/NewDataslate'
 import supabaseClient from './superbaseClient'
 import useSystemError from './stores/systemError.ts'
+import useDataslateStore from './stores/dataslateStore.ts'
 
 function App() {
   const [session, setSession] = useState<Session | null>(null)
   const error = useSystemError((state) => state.error)
   const resetError = useSystemError((state) => state.resetError)
+  const dataslates = useDataslateStore((state) => state.dataslates)
+  const gatDataslates = useDataslateStore((state) => state.getDataslates)
+  const sortedDataslates = dataslates?.sort()
+
 
   useEffect(() => {
     supabaseClient.auth.getSession().then(({ data: { session } }) => {
@@ -25,8 +30,13 @@ function App() {
       setSession(session)
     })
 
+    gatDataslates()
+
+
     return () => subscription.unsubscribe()
   }, [])
+
+
 
   if (!session) {
     return <Authentication />
