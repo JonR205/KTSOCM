@@ -1,3 +1,4 @@
+import { create } from 'zustand'
 import { Faction } from './faction.ts'
 import { BaseOfOperations } from './baseOfOperations.ts'
 import supabaseClient from '../superbaseClient.ts'
@@ -14,6 +15,7 @@ export interface Dataslate {
   notes?: string
   quirks?: string
   selectableKeyword?: string | null
+  // created_at: number
 }
 
 interface ApiResponse<Data> {
@@ -47,6 +49,7 @@ export const postDataslate = async (
     id: 0,
     reqPoints: 4,
     specOpsLog: [],
+    
   }
 
   try {
@@ -82,7 +85,6 @@ export const getDataslates = async (): Promise<ApiResponse<Dataslate[]>> => {
       data: data.map((data) => ({
         ...data.json,
         id: data.id,
-        created_at: data.created_at,
       })),
     }
   } catch (e) {

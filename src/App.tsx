@@ -15,9 +15,7 @@ function App() {
   const error = useSystemError((state) => state.error)
   const resetError = useSystemError((state) => state.resetError)
   const dataslates = useDataslateStore((state) => state.dataslates)
-  const gatDataslates = useDataslateStore((state) => state.getDataslates)
-  const sortedDataslates = dataslates?.sort()
-
+  const getDataslates = useDataslateStore((state) => state.getDataslates)
 
   useEffect(() => {
     supabaseClient.auth.getSession().then(({ data: { session } }) => {
@@ -30,13 +28,14 @@ function App() {
       setSession(session)
     })
 
-    gatDataslates()
-
+    getDataslates()
 
     return () => subscription.unsubscribe()
   }, [])
 
-
+  const newestDataslates = dataslates?.sort((a, b) => {
+    return a.id - b.id
+  })[-1]
 
   if (!session) {
     return <Authentication />
