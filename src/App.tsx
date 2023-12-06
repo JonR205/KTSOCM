@@ -1,6 +1,6 @@
 import { Session } from '@supabase/supabase-js'
 import { useEffect, useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { sessionContext } from './context/sessionContext'
 import Authentication from './pages/Authentication'
 import Dashboard from './pages/Dashboard'
@@ -54,7 +54,7 @@ function App() {
 
           <div id="navbarMenu" className="navbar-menu">
             <div className="navbar-start">
-              <a className="navbar-item" href={'/'}>
+              <a className="navbar-item" href={'/dashboard'}>
                 Dashboard
               </a>
             </div>
@@ -80,10 +80,22 @@ function App() {
         )}
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Dashboard  />} />
+            {/* <Route path="/" element={<Dashboard  />} /> */}
+            code snippet
+            <Route
+              path="/"
+              element={
+                !newestDataslate ? (
+                  <Dashboard />
+                ) : (
+                  <Navigate replace to={`/dataslate/${newestDataslate}`} />
+                )
+              }
+            />
             <Route path="/auth" element={<Authentication />} />
             <Route path="/new-dataslate" element={<NewDataslate />} />
             <Route path="/dataslate/:dataslateId" element={<Dataslate />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </BrowserRouter>
       </sessionContext.Provider>
