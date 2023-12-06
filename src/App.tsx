@@ -9,6 +9,7 @@ import NewDataslate from './pages/NewDataslate'
 import supabaseClient from './superbaseClient'
 import useSystemError from './stores/systemError.ts'
 import useDataslateStore from './stores/dataslateStore.ts'
+import DataslateCard from './component/DataslateCard.tsx'
 
 function App() {
   const [session, setSession] = useState<Session | null>(null)
@@ -33,9 +34,11 @@ function App() {
     return () => subscription.unsubscribe()
   }, [])
 
-  const newestDataslates = dataslates?.sort((a, b) => {
-    return a.id - b.id
-  })[-1]
+  const newestDataslate = dataslates?.sort((a, b) => {
+    return b.id - a.id
+  })[0].id
+
+  console.log(newestDataslate)
 
   if (!session) {
     return <Authentication />
@@ -77,7 +80,7 @@ function App() {
         )}
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<Dashboard  />} />
             <Route path="/auth" element={<Authentication />} />
             <Route path="/new-dataslate" element={<NewDataslate />} />
             <Route path="/dataslate/:dataslateId" element={<Dataslate />} />
