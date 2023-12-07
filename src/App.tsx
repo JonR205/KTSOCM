@@ -1,6 +1,12 @@
 import { Session } from '@supabase/supabase-js'
 import { useEffect, useState } from 'react'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  useNavigate,
+} from 'react-router-dom'
 import { sessionContext } from './context/sessionContext'
 import Authentication from './pages/Authentication'
 import Dashboard from './pages/Dashboard'
@@ -17,6 +23,7 @@ function App() {
   const resetError = useSystemError((state) => state.resetError)
   const dataslates = useDataslateStore((state) => state.dataslates)
   const getDataslates = useDataslateStore((state) => state.getDataslates)
+  const navigate = useNavigate()
 
   useEffect(() => {
     supabaseClient.auth.getSession().then(({ data: { session } }) => {
@@ -34,9 +41,16 @@ function App() {
     return () => subscription.unsubscribe()
   }, [])
 
-  const newestDataslate = dataslates?.sort((a, b) => {
-    return b.id - a.id
-  })[0].id
+  const newestDataslate = () => {
+    dataslates?.sort((a, b) => {
+      return b.id - a.id
+    })[0].id
+    const navigateToDatastlate = () => {
+      navigate(`/dataslate/${newestDataslate}`)
+    }
+
+    navigateToDatastlate()
+  }
 
   console.log(newestDataslate)
 
@@ -80,18 +94,7 @@ function App() {
         )}
         <BrowserRouter>
           <Routes>
-            {/* <Route path="/" element={<Dashboard  />} /> */}
-            code snippet
-            <Route
-              path="/"
-              element={
-                !newestDataslate ? (
-                  <Dashboard />
-                ) : (
-                  <Navigate replace to={`/dataslate/${newestDataslate}`} />
-                )
-              }
-            />
+            <Route path="/" element={<Dashboard />} />
             <Route path="/auth" element={<Authentication />} />
             <Route path="/new-dataslate" element={<NewDataslate />} />
             <Route path="/dataslate/:dataslateId" element={<Dataslate />} />
