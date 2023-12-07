@@ -30,18 +30,18 @@ function App() {
     })
 
     getDataslates()
+    
+    const newestDataslate = () => {
+      dataslates?.sort((a, b) => {
+        return b.id - a.id
+      })[0].id
+    }
+    window.location.href = `/dataslate/${newestDataslate}`
+
+    console.log(newestDataslate)
 
     return () => subscription.unsubscribe()
   }, [])
-
-  const newestDataslate = () => {
-    dataslates?.sort((a, b) => {
-      return b.id - a.id
-    })[0].id
-  }
-  window.location.href = `/dataslate/${newestDataslate}`
-  
-  console.log(newestDataslate)
 
   if (!session) {
     return <Authentication />
