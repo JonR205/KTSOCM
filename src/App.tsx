@@ -1,12 +1,6 @@
 import { Session } from '@supabase/supabase-js'
 import { useEffect, useState } from 'react'
-import {
-  BrowserRouter,
-  Navigate,
-  Route,
-  Routes,
-  useNavigate,
-} from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { sessionContext } from './context/sessionContext'
 import Authentication from './pages/Authentication'
 import Dashboard from './pages/Dashboard'
@@ -23,7 +17,6 @@ function App() {
   const resetError = useSystemError((state) => state.resetError)
   const dataslates = useDataslateStore((state) => state.dataslates)
   const getDataslates = useDataslateStore((state) => state.getDataslates)
-  const navigate = useNavigate()
 
   useEffect(() => {
     supabaseClient.auth.getSession().then(({ data: { session } }) => {
@@ -45,13 +38,9 @@ function App() {
     dataslates?.sort((a, b) => {
       return b.id - a.id
     })[0].id
-    const navigateToDatastlate = () => {
-      navigate(`/dataslate/${newestDataslate}`)
-    }
-
-    navigateToDatastlate()
   }
-
+  window.location.href = `/dataslate/${newestDataslate}`
+  
   console.log(newestDataslate)
 
   if (!session) {
