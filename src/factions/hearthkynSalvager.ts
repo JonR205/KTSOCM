@@ -94,10 +94,10 @@ export const aGrudgeDeclared: Gear = {
 export const darkstarWeapon: Gear = {
   id: 0,
   name: 'Darkstar Weapon',
-  description:
-    'Select one of the operative’s melee weapons. Until the end of the battle, that weapon gains the Rending critical hit rule.',
+  description: '',
   cost: 2,
-  ability: '',
+  ability:
+    'Select one of the operative’s melee weapons. Until the end of the battle, that weapon gains the Rending critical hit rule.',
   rare: true,
 }
 
@@ -135,9 +135,9 @@ export const ionExpediter: Gear = {
   id: 0,
   name: 'Ion Expediter',
   description:
-    'Select one ion blaster or ion pistol the operative is equipped with. Add 1 to both of its Damage characteristics for the battle.',
+    '',
   cost: 2,
-  ability: '',
+  ability: 'Select one ion blaster or ion pistol the operative is equipped with. Add 1 to both of its Damage characteristics for the battle.',
   rare: true,
 }
 
