@@ -3,6 +3,11 @@ import { BaseOfOperations } from './baseOfOperations.ts'
 import supabaseClient from '../superbaseClient.ts'
 import useSystemError from '../stores/systemError.ts'
 import { SpecOps } from './specOps.ts'
+import { farstalkerKinband } from '../factions/farstalkerKinband.ts'
+import { handOfTheArchon } from '../factions/handOfTheArchon.ts'
+import { hearthkynSalvager } from '../factions/hearthkynSalvager.ts'
+import { kommando } from '../factions/kommando.ts'
+import { legionary } from '../factions/legionary.ts'
 
 export interface Dataslate {
   id: number
@@ -92,6 +97,14 @@ export const getDataslates = async (): Promise<ApiResponse<Dataslate[]>> => {
   } catch (e) {
     return { error: 'Unknown error' }
   }
+}
+
+const factionMap = {
+  'Farstalker Kinband': farstalkerKinband,
+  'Hand Of The Archon': handOfTheArchon,
+  'Hearthkyn Salvager': hearthkynSalvager,
+  'Kommando': kommando,
+  'Legionary': legionary,
 }
 
 export const getDataslate = async (
