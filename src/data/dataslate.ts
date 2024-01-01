@@ -8,6 +8,7 @@ import { handOfTheArchon } from '../factions/handOfTheArchon.ts'
 import { hearthkynSalvager } from '../factions/hearthkynSalvager.ts'
 import { kommando } from '../factions/kommando.ts'
 import { legionary } from '../factions/legionary.ts'
+import Dataslate from '../pages/Dataslate.tsx'
 
 export interface Dataslate {
   id: number
@@ -99,12 +100,12 @@ export const getDataslates = async (): Promise<ApiResponse<Dataslate[]>> => {
   }
 }
 
-const factionMap = {
+const factionMap: Record<string, Faction> = {
   'Farstalker Kinband': farstalkerKinband,
   'Hand Of The Archon': handOfTheArchon,
   'Hearthkyn Salvager': hearthkynSalvager,
-  'Kommando': kommando,
-  'Legionary': legionary,
+  Kommando: kommando,
+  Legionary: legionary,
 }
 
 export const getDataslate = async (
@@ -119,7 +120,12 @@ export const getDataslate = async (
 
     if (error) return { error: error.message }
 
-    return { data: { ...data.json, id: data.id } }
+    const dataSlate: Dataslate = { ...data.json, id: data.id }
+    const faction = factionMap[dataSlate.faction.name]
+
+    if (faction) dataSlate.faction = faction
+
+    return { data: dataSlate }
   } catch (e) {
     return { error: 'Unknown error' }
   }
