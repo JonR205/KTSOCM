@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import { Dataslate as DataslateJson } from './data/dataslate.ts'
+import { GallowdarkExpedition } from './data/gallowdarkExpedition.ts'
 
 const supabaseClient = createClient<Database>(
   'https://xkgvpmjinpdnjdzkcncf.supabase.co',
@@ -36,6 +37,31 @@ export interface Database {
             referencedColumns: ['id']
           },
         ]
+      }
+      gallowdark_expedition_json: {
+        Row: {
+          created_at: string
+          id: number
+          json: GallowdarkExpedition
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          json: GallowdarkExpedition
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          json?: GallowdarkExpedition
+        }
+        // Relationships: [
+          // {
+          //   foreignKeyName: 'dataslate_json_user_id_fkey'
+          //   columns: ['user_id']
+          //   referencedRelation: 'users'
+          //   referencedColumns: ['id']
+          // },
+        // ]
       }
     }
     Views: {

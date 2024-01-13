@@ -3062,14 +3062,14 @@ a.tag:hover {
   border-bottom-right-radius: 0.25rem; }
 
 .card-header {
-  background-color: transparent;
+  background-color: #ca4e19;
   align-items: stretch;
   box-shadow: 0 0.125em 0.25em rgba(10, 10, 10, 0.1);
   display: flex; }
 
 .card-header-title {
   align-items: center;
-  color: #363636;
+  color: white;
   display: flex;
   flex-grow: 1;
   font-weight: 700;

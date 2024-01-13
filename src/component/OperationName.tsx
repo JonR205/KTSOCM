@@ -1,4 +1,4 @@
-import { isOperationOne, Operation } from '../data/specOps.ts'
+import { isOperationOne, Operation } from '../data/specOp.ts'
 
 interface Props {
   operation: Operation

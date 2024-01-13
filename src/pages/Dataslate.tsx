@@ -3,12 +3,10 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import useDataslateStore from '../stores/dataslateStore.ts'
 import TeamBackground from '../component/TeamBackground.tsx'
 import BaseOfOperations from '../component/BaseOfOperations.tsx'
-import SpecOpsModal from '../modals/SpecOpsModal.tsx'
 import CurrentSpecOpsCard from '../component/CurrentSpecOpsCard.tsx'
 import Operatives from '../component/Operatives.tsx'
 import RequisitionsModal from '../modals/RequisitionsModal.tsx'
 import ConfirmModal from '../modals/ConfirmModal.tsx'
-import PickASpecOpsModal from '../modals/PickASpecOpsModal.tsx'
 import Navbar from '../component/Navbar.tsx'
 
 const Dataslate = () => {
@@ -26,15 +24,13 @@ const Dataslate = () => {
     useState(false)
 
   useEffect(() => {
-    getDataslate(dataslateId ?? '')
-  }, [dataslateId])
+    void getDataslate(dataslateId ?? '')
+  }, [getDataslate, dataslateId])
 
   useEffect(() => {
     if (!hash) nav('#base')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  const [showSpecOpsModal, setShowSpecOpsModal] = useState(false)
-  const [showPickSpecOpsModal, setShowPickSpecOpsModal] = useState(false)
 
   if (!dataslate || loading) return <h1> Loading </h1>
 
@@ -52,14 +48,7 @@ const Dataslate = () => {
         showModal={showRequisitionsModal}
         onClose={() => setShowRequisitionsModal(false)}
       />
-      <SpecOpsModal
-        showModal={showSpecOpsModal}
-        onClose={() => setShowSpecOpsModal(false)}
-      />
-      <PickASpecOpsModal
-        showModal={showPickSpecOpsModal}
-        onClose={() => setShowPickSpecOpsModal(false)}
-      />
+
       <div className={'container'}>
         <section className={'section'}>
           <div className={'columns is-5'}>
@@ -69,11 +58,8 @@ const Dataslate = () => {
                 <p className="subtitle">{dataslate.faction.name}</p>
               </div>
             </div>
-            <div className={'column has-text-centered'}>
-              <CurrentSpecOpsCard
-                onClick={() => setShowSpecOpsModal(true)}
-                onAssignClicked={() => setShowPickSpecOpsModal(true)}
-              />
+            <div className={'column'}>
+              <CurrentSpecOpsCard />
             </div>
             <div className={'column is-2'}>
               <a

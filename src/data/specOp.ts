@@ -1,19 +1,18 @@
-export interface SpecOps {
+import SpecOps from './SpecOps.ts'
+
+export interface SpecOp {
   name: string
   description: string
   commendations: Commendation[]
-}
-
-export interface StanderSpecOps extends SpecOps {
   operationOne: OperationOne
   operationTwo: OperationTwo
   bonus?: string
 }
 
 export const isStanderSpecOps = (
-  specOps: SpecOps,
-): specOps is StanderSpecOps => {
-  return (specOps as StanderSpecOps).operationOne !== undefined
+  specOp: SpecOps,
+): specOp is SpecOp => {
+  return (specOp as SpecOp).description !== undefined
 }
 
 interface Commendation {
@@ -41,7 +40,7 @@ export const isOperationOne = (
 
 export type OperationTwo = Operation
 
-const elimination: StanderSpecOps = {
+const elimination: SpecOp = {
   name: 'Elimination',
   description:
     'Various rival factions have deployed kill teams in the area. If they gain a foothold, your faction’s war effort will be severely hampered. Your kill team must make a series of pre-emptive strikes and eventually eliminate the enemy’s command structure before their forces gain too much ground.',
@@ -79,7 +78,7 @@ const elimination: StanderSpecOps = {
   ],
 }
 
-const recoverArcheotech: StanderSpecOps = {
+const recoverArcheotech: SpecOp = {
   name: 'Recover Archeotech',
   description:
     'Rumours are circulating of a hidden archeotech artefact, a rare and ancient item of technology that offers great power. Your kill team must search the area, and if the rumours prove to be true, retrieve the archeotech for high command.',
@@ -112,7 +111,7 @@ const recoverArcheotech: StanderSpecOps = {
   ],
 }
 
-const BetaTestSpecOps: StanderSpecOps = {
+const BetaTestSpecOps: SpecOp = {
   name: 'Let us test the machine sprite of these ancient systems',
   description: 'Just a way to test out the app',
   operationOne: {
