@@ -29,8 +29,8 @@ const PickASpecOpsModal = (props: Props) => {
           </header>
           <section className="modal-card-body">
             <GallowdarkExpeditionSpecOpsProfile />
-            {genericSpecOps.map((specOps, index) => (
-              <SpecOpsProfile specOps={specOps} key={index} />
+            {genericSpecOps.map((specOp, index) => (
+              <SpecOpsProfile specOp={specOp} key={index} />
             ))}
           </section>
           <footer className="modal-card-foot">

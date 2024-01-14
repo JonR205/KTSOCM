@@ -1,17 +1,17 @@
-import { SpecOp } from '../data/specOp.ts'
 import OperationProfile from './OperationProfile.tsx'
 import ConfirmModal from '../modals/ConfirmModal.tsx'
 import { useState } from 'react'
 import useDataslateStore from '../stores/dataslateStore.ts'
+import { SpecOp } from '../data/specOp.ts'
 
 interface Props {
-  specOps: SpecOp
+  specOp: SpecOp
   isAssigned?: boolean
   showCompletion?: boolean
 }
 
 const SpecOpsProfile = (props: Props) => {
-  const { specOps, isAssigned, showCompletion } = props
+  const { specOp, isAssigned, showCompletion } = props
   const {
     name,
     description,
@@ -19,7 +19,7 @@ const SpecOpsProfile = (props: Props) => {
     operationTwo,
     commendations,
     bonus,
-  } = specOps
+  } = specOp
 
   const [showConfirmModal, setShowConfirmModal] = useState(false)
 
@@ -42,7 +42,7 @@ const SpecOpsProfile = (props: Props) => {
 
   const onConfirm = () => {
     setShowConfirmModal(false)
-    assignSpecOps(specOps)
+    assignSpecOps(specOp)
   }
 
   return (
@@ -75,7 +75,9 @@ const SpecOpsProfile = (props: Props) => {
           showCompletion={showCompletion}
         />
         <p className={'is-size-6 has-text-weight-bold'}>Commendation</p>
-        <ul className={'is-family-secondary is-size-6 pl-5'} style={{ listStyleType: 'disc' }}>
+        <ul
+          className={'is-family-secondary is-size-6 pl-5'}
+          style={{ listStyleType: 'disc' }}>
           {commendations.map(({ reward, claimed }, index) => (
             <li key={index}>
               {isAssigned && isComplete && (
