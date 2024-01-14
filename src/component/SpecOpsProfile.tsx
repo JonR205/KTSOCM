@@ -1,11 +1,11 @@
-import { StanderSpecOps } from '../data/specOps.ts'
+import { SpecOp } from '../data/specOp.ts'
 import OperationProfile from './OperationProfile.tsx'
 import ConfirmModal from '../modals/ConfirmModal.tsx'
 import { useState } from 'react'
 import useDataslateStore from '../stores/dataslateStore.ts'
 
 interface Props {
-  specOps: StanderSpecOps
+  specOps: SpecOp
   isAssigned?: boolean
   showCompletion?: boolean
 }

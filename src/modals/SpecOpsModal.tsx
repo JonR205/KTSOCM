@@ -2,7 +2,7 @@ import { useState } from 'react'
 import useDataslateStore from '../stores/dataslateStore.ts'
 import ConfirmModal from './ConfirmModal.tsx'
 import SpecOpsProfile from '../component/SpecOpsProfile.tsx'
-import { isStanderSpecOps } from '../data/specOps.ts'
+import { isStanderSpecOps } from '../data/specOp.ts'
 
 interface Props {
   showModal: boolean

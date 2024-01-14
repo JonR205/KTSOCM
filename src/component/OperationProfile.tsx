@@ -1,4 +1,4 @@
-import { Operation } from '../data/specOps.ts'
+import { Operation } from '../data/specOp.ts'
 import OperationName from './OperationName.tsx'
 
 interface Props {

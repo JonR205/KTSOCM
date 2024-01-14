@@ -2,7 +2,14 @@ import { Faction } from './faction.ts'
 import { BaseOfOperations } from './baseOfOperations.ts'
 import supabaseClient from '../superbaseClient.ts'
 import useSystemError from '../stores/systemError.ts'
-import { SpecOps } from './specOps.ts'
+import { ApiResponse } from './apiResponse.ts'
+import SpecOps from './SpecOps.ts'
+import { farstalkerKinband } from '../factions/farstalkerKinband.ts'
+import { handOfTheArchon } from '../factions/handOfTheArchon.ts'
+import { hearthkynSalvager } from '../factions/hearthkynSalvager.ts'
+import { kommando } from '../factions/kommando.ts'
+import { legionary } from '../factions/legionary.ts'
+import Dataslate from '../pages/Dataslate.tsx'
 
 export interface Dataslate {
   id: number
@@ -11,17 +18,13 @@ export interface Dataslate {
   faction: Faction
   reqPoints: number
   currentSpecOps?: SpecOps
-  completedSpecOps: SpecOps[]
+  currentSpecOpsId?: number
+  completedSpecOps: Array<SpecOps>
   baseOfOperations: BaseOfOperations
   history?: string
   notes?: string
   quirks?: string
   selectableKeyword?: string | null
-}
-
-interface ApiResponse<Data> {
-  data?: Data
-  error?: string | 'Unknown error'
 }
 
 const setError = useSystemError.getState().setError
@@ -94,6 +97,14 @@ export const getDataslates = async (): Promise<ApiResponse<Dataslate[]>> => {
   }
 }
 
+const factionMap: Record<string, Faction> = {
+  'Farstalker Kinband': farstalkerKinband,
+  'Hand Of The Archon': handOfTheArchon,
+  'Hearthkyn Salvager': hearthkynSalvager,
+  Kommando: kommando,
+  Legionary: legionary,
+}
+
 export const getDataslate = async (
   dataslateId: string,
 ): Promise<ApiResponse<Dataslate>> => {
@@ -106,7 +117,12 @@ export const getDataslate = async (
 
     if (error) return { error: error.message }
 
-    return { data: { ...data.json, id: data.id } }
+    const dataSlate: Dataslate = { ...data.json, id: data.id }
+    const faction = factionMap[dataSlate.faction.name]
+
+    if (faction) dataSlate.faction = faction
+
+    return { data: dataSlate }
   } catch (e) {
     return { error: 'Unknown error' }
   }
