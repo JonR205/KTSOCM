@@ -85,15 +85,6 @@ const useDataslateStore = create<DataslateState>((set, get) => ({
   getDataslate: async (dataslateId) => {
     set({ loading: true })
 
-    const fromDataslate = get().dataslates?.find(
-      ({ id }) => id.toString() === dataslateId,
-    )
-
-    if (fromDataslate) {
-      set({ loading: false, selectedDataslate: fromDataslate })
-      return
-    }
-
     const { data, error } = await getDataslate(dataslateId)
 
     set({ loading: false })
