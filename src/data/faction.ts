@@ -5,7 +5,7 @@ import { legionary } from '../factions/legionary.ts'
 import { kommando } from '../factions/kommando.ts'
 import { farstalkerKinband } from '../factions/farstalkerKinband.ts'
 import { StrategicAssets } from './strategicAssets.ts'
-import { SpecOps } from './specOps.ts'
+import { SpecOp } from './specOp.ts'
 import { handOfTheArchon } from '../factions/handOfTheArchon.ts'
 
 export interface Faction {
@@ -17,7 +17,7 @@ export interface Faction {
   equipment: Equipment[]
   rareEquipment: Equipment[]
   requisitions: Requisition[]
-  specOps: SpecOps[]
+  specOps: SpecOp[]
   coverImage?: string
   strategicAssets?: StrategicAssets[]
 }

@@ -11,7 +11,10 @@ import { Stash } from '../data/baseOfOperations.ts'
 import useSystemError from './systemError.ts'
 import { Equipment } from '../data/equipment.ts'
 import { Requisition } from '../data/requisition.ts'
-import { isStanderSpecOps, SpecOps } from '../data/specOps.ts'
+import { isStanderSpecOps } from '../data/specOp.ts'
+import { getGallowdarkExpedition } from '../data/gallowdarkExpedition.ts'
+import useGallowdarkExpeditionStore from './gallowdarkExpeditionStore.ts'
+import SpecOps from '../data/SpecOps.ts'
 import { Faction } from '../data/faction.ts'
 
 export interface DataslateState {
@@ -89,7 +92,20 @@ const useDataslateStore = create<DataslateState>((set, get) => ({
 
     set({ loading: false })
     if (error) setError(error)
-    if (data) set({ selectedDataslate: data })
+    if (!data) return
+
+    if (data.currentSpecOps && !isStanderSpecOps(data.currentSpecOps)) {
+      const { data: specOps } = await getGallowdarkExpedition(
+        data.currentSpecOps.id,
+      )
+
+      if (specOps) {
+        data.currentSpecOps = specOps
+        useGallowdarkExpeditionStore.setState({ currentCampaign: specOps })
+      }
+    }
+
+    set({ selectedDataslate: data })
   },
 
   createDataslate: async (
@@ -344,6 +360,7 @@ const useDataslateStore = create<DataslateState>((set, get) => ({
     }
 
     newDataslate.currentSpecOps = specOps
+    if ('id' in specOps) newDataslate.currentSpecOpsId = specOps.id
 
     saveDataslate(newDataslate, set)
   },
@@ -424,6 +441,8 @@ const useDataslateStore = create<DataslateState>((set, get) => ({
     if (!selectedDataslate) return
     const newDataslate = { ...selectedDataslate }
     if (!newDataslate?.currentSpecOps) return
+
+    if (!isStanderSpecOps(newDataslate.currentSpecOps)) return
 
     if (index >= newDataslate.currentSpecOps.commendations.length) return
 

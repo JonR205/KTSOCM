@@ -2,7 +2,8 @@ import { Faction } from './faction.ts'
 import { BaseOfOperations } from './baseOfOperations.ts'
 import supabaseClient from '../superbaseClient.ts'
 import useSystemError from '../stores/systemError.ts'
-import { SpecOps } from './specOps.ts'
+import { ApiResponse } from './apiResponse.ts'
+import SpecOps from './SpecOps.ts'
 import { farstalkerKinband } from '../factions/farstalkerKinband.ts'
 import { handOfTheArchon } from '../factions/handOfTheArchon.ts'
 import { hearthkynSalvager } from '../factions/hearthkynSalvager.ts'
@@ -17,17 +18,13 @@ export interface Dataslate {
   faction: Faction
   reqPoints: number
   currentSpecOps?: SpecOps
-  completedSpecOps: SpecOps[]
+  currentSpecOpsId?: number
+  completedSpecOps: Array<SpecOps>
   baseOfOperations: BaseOfOperations
   history?: string
   notes?: string
   quirks?: string
   selectableKeyword?: string | null
-}
-
-interface ApiResponse<Data> {
-  data?: Data
-  error?: string | 'Unknown error'
 }
 
 const setError = useSystemError.getState().setError
