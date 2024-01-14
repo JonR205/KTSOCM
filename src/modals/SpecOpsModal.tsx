@@ -69,7 +69,7 @@ const SpecOpsModal = (props: Props) => {
           </header>
           <section className="modal-card-body">
             <SpecOpsProfile
-              specOps={currentSpecOps}
+              specOp={currentSpecOps}
               isAssigned={true}
               showCompletion={true}
             />
