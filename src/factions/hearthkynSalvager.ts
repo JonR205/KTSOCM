@@ -1,3 +1,4 @@
+import { Operatives } from './../data/operatives'
 import { Faction } from '../data/faction.ts'
 import { Requisition } from '../data/requisition.ts'
 import { StrategicAssets } from '../data/strategicAssets.ts'
@@ -134,10 +135,10 @@ export const gravLiftDevice: Gear = {
 export const ionExpediter: Gear = {
   id: 0,
   name: 'Ion Expediter',
-  description:
-    '',
+  description: '',
   cost: 2,
-  ability: 'Select one ion blaster or ion pistol the operative is equipped with. Add 1 to both of its Damage characteristics for the battle.',
+  ability:
+    'Select one ion blaster or ion pistol the operative is equipped with. Add 1 to both of its Damage characteristics for the battle.',
   rare: true,
 }
 
@@ -189,6 +190,18 @@ const petitionTheGuild: Requisition = {
   description:
     'The kill team approaches one of the Kin’s many Guilds seeking unusual equipment that will aid them on their missions. The Guild is happy to oblige, provided that the squad offer something of comparable value to them in return.',
   rule: 'Purchase this Requisition before a game, if your kill team is currently conducting a Spec Op. Randomly determine one Recon or Security Tac Op. Until that Spec Op ends, keep a tally of victory points you score from that Tac Op. When you add the fifth mark to the tally, you can add one item of rare equipment to your stash.',
+}
+
+const hearthkynTheyn: Operatives = {
+  name: '' ?? 'Hearthkyn Theyn',
+  type: 'HEARTHKYN THEYN',
+  specialisms: undefined,
+  xp: 0,
+  rank: undefined,
+  battleHonours: [],
+  battleScars: [],
+  Resttally: 0,
+  notes: undefined,
 }
 
 export const hearthkynSalvager: Faction = {
