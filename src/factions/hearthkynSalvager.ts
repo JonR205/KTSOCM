@@ -193,15 +193,113 @@ const petitionTheGuild: Requisition = {
 }
 
 const hearthkynTheyn: Operatives = {
-  name: '' ?? 'Hearthkyn Theyn',
   type: 'HEARTHKYN THEYN',
-  specialisms: undefined,
+  specialisms: [],
   xp: 0,
-  rank: undefined,
+  rank: 'Adept',
   battleHonours: [],
   battleScars: [],
   Resttally: 0,
-  notes: undefined,
+}
+
+const hearthkynDozr: Operatives = {
+  type: 'Hearthkyn Dozr',
+  specialisms: [],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  Resttally: 0,
+}
+
+const hearthkynFieldMedic: Operatives = {
+  type: 'Hearthkyn Field Medic',
+  specialisms: [],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  Resttally: 0,
+}
+
+const hearthkynGrenadier: Operatives = {
+  type: 'Hearthkyn Grenadier',
+  specialisms: [],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  Resttally: 0,
+}
+
+const hearthkynGunner: Operatives = {
+  type: 'Hearthkyn Gunner',
+  specialisms: [],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  Resttally: 0,
+}
+
+const hearthkynJumpPackWarrior: Operatives = {
+  type: 'Hearthkyn Jump Pack Warrior',
+  specialisms: [],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  Resttally: 0,
+}
+
+const hearthkynKinlynk: Operatives = {
+  type: 'Hearthkyn Kinlynk',
+  specialisms: [],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  Resttally: 0,
+}
+
+const hearthkynKognitaar: Operatives = {
+  type: 'Hearthkyn Kognitaar',
+  specialisms: [],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  Resttally: 0,
+}
+
+const hearthkynLokatr: Operatives = {
+  type: 'Hearthkyn Lokatr',
+  specialisms: [],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  Resttally: 0,
+}
+
+const hearthkynLugger: Operatives = {
+  type: 'Hearthkyn Lugger',
+  specialisms: [],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  Resttally: 0,
+}
+
+const hearthkynWarrior: Operatives = {
+  type: 'Hearthkyn Warrior',
+  specialisms: [],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  Resttally: 0,
 }
 
 export const hearthkynSalvager: Faction = {
@@ -234,4 +332,17 @@ export const hearthkynSalvager: Faction = {
   ],
   requisitions: [theirHearthBurns, returnToTheAncestor, petitionTheGuild],
   specOps: [],
+  operatives: [
+    hearthkynTheyn,
+    hearthkynDozr,
+    hearthkynFieldMedic,
+    hearthkynGrenadier,
+    hearthkynGunner,
+    hearthkynJumpPackWarrior,
+    hearthkynKinlynk,
+    hearthkynKognitaar,
+    hearthkynLokatr,
+    hearthkynLugger,
+    hearthkynWarrior,
+  ],
 }
