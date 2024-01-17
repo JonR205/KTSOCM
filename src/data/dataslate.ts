@@ -10,7 +10,7 @@ import { hearthkynSalvager } from '../factions/hearthkynSalvager.ts'
 import { kommando } from '../factions/kommando.ts'
 import { legionary } from '../factions/legionary.ts'
 import Dataslate from '../pages/Dataslate.tsx'
-import { Operatives } from './operatives.ts'
+import { Operative } from './operatives.ts'
 
 export interface Dataslate {
   id: number
@@ -26,7 +26,7 @@ export interface Dataslate {
   notes?: string
   quirks?: string
   selectableKeyword?: string | null
-  operatives?: Operatives
+  operatives?: Operative[]
 }
 
 const setError = useSystemError.getState().setError
