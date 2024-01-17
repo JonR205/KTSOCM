@@ -1,3 +1,4 @@
+import { Operatives } from './../data/operatives'
 import { Faction } from '../data/faction.ts'
 import { Requisition } from '../data/requisition.ts'
 import { StrategicAssets } from '../data/strategicAssets.ts'
@@ -134,10 +135,10 @@ export const gravLiftDevice: Gear = {
 export const ionExpediter: Gear = {
   id: 0,
   name: 'Ion Expediter',
-  description:
-    '',
+  description: '',
   cost: 2,
-  ability: 'Select one ion blaster or ion pistol the operative is equipped with. Add 1 to both of its Damage characteristics for the battle.',
+  ability:
+    'Select one ion blaster or ion pistol the operative is equipped with. Add 1 to both of its Damage characteristics for the battle.',
   rare: true,
 }
 
@@ -191,6 +192,116 @@ const petitionTheGuild: Requisition = {
   rule: 'Purchase this Requisition before a game, if your kill team is currently conducting a Spec Op. Randomly determine one Recon or Security Tac Op. Until that Spec Op ends, keep a tally of victory points you score from that Tac Op. When you add the fifth mark to the tally, you can add one item of rare equipment to your stash.',
 }
 
+const hearthkynTheyn: Operatives = {
+  type: 'Hearthkyn Theyn',
+  specialisms: ['Combat', 'Staunch', 'Marksman'],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  restTally: 0,
+}
+
+const hearthkynDozr: Operatives = {
+  type: 'Hearthkyn Dozr',
+  specialisms: ['Combat', 'Staunch'],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  restTally: 0,
+}
+
+const hearthkynFieldMedic: Operatives = {
+  type: 'Hearthkyn Field Medic',
+  specialisms: ['Staunch', 'Scout'],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  restTally: 0,
+}
+
+const hearthkynGrenadier: Operatives = {
+  type: 'Hearthkyn Grenadier',
+  specialisms: ['Staunch', 'Scout'],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  restTally: 0,
+}
+
+const hearthkynGunner: Operatives = {
+  type: 'Hearthkyn Gunner',
+  specialisms: ['Staunch', 'Marksman'],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  restTally: 0,
+}
+
+const hearthkynJumpPackWarrior: Operatives = {
+  type: 'Hearthkyn Jump Pack Warrior',
+  specialisms: ['Combat', 'Scout'],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  restTally: 0,
+}
+
+const hearthkynKinlynk: Operatives = {
+  type: 'Hearthkyn Kinlynk',
+  specialisms: ['Staunch', 'Scout'],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  restTally: 0,
+}
+
+const hearthkynKognitaar: Operatives = {
+  type: 'Hearthkyn Kognitaar',
+  specialisms: ['Staunch'],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  restTally: 0,
+}
+
+const hearthkynLokatr: Operatives = {
+  type: 'Hearthkyn Lokatr',
+  specialisms: ['Staunch', 'Scout'],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  restTally: 0,
+}
+
+const hearthkynLugger: Operatives = {
+  type: 'Hearthkyn Lugger',
+  specialisms: ['Staunch'],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  restTally: 0,
+}
+
+const hearthkynWarrior: Operatives = {
+  type: 'Hearthkyn Warrior',
+  specialisms: ['Staunch', 'Marksman'],
+  xp: 0,
+  rank: 'Adept',
+  battleHonours: [],
+  battleScars: [],
+  restTally: 0,
+}
+
 export const hearthkynSalvager: Faction = {
   id: 2,
   name: 'Hearthkyn Salvager',
@@ -221,4 +332,17 @@ export const hearthkynSalvager: Faction = {
   ],
   requisitions: [theirHearthBurns, returnToTheAncestor, petitionTheGuild],
   specOps: [],
+  operatives: [
+    hearthkynTheyn,
+    hearthkynDozr,
+    hearthkynFieldMedic,
+    hearthkynGrenadier,
+    hearthkynGunner,
+    hearthkynJumpPackWarrior,
+    hearthkynKinlynk,
+    hearthkynKognitaar,
+    hearthkynLokatr,
+    hearthkynLugger,
+    hearthkynWarrior,
+  ],
 }
