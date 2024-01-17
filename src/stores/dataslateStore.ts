@@ -466,8 +466,31 @@ const useDataslateStore = create<DataslateState>((set, get) => ({
 
     saveDataslate(newDataslate, set)
   },
-  addOperative: (operative: Operative) => {},
-  removeOperative: (operative: Operative) => {},
+
+  addOperative: (operative: Operative) => {
+    const selectedDataslate = get().selectedDataslate
+    if (!selectedDataslate) return
+
+    const newDataslate: Dataslate = { ...selectedDataslate }
+    newDataslate?.operatives?.push(operative)
+
+    saveDataslate(newDataslate, set)
+  },
+
+  removeOperative: (operative: Operative) => {
+    const selectedDataslate = get().selectedDataslate
+    if (!selectedDataslate) return
+
+    const operativeIndex = selectedDataslate.operatives?.findIndex(
+      ({ name }) => name === operative.name,
+    )
+    if (!operativeIndex) return
+
+    const newDataslate = { ...selectedDataslate }
+    newDataslate.operatives?.splice(operativeIndex, 1)
+
+    saveDataslate(newDataslate, set)
+  },
 }))
 
 export default useDataslateStore
