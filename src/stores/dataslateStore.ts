@@ -16,6 +16,7 @@ import { getGallowdarkExpedition } from '../data/gallowdarkExpedition.ts'
 import useGallowdarkExpeditionStore from './gallowdarkExpeditionStore.ts'
 import SpecOps from '../data/SpecOps.ts'
 import { Faction } from '../data/faction.ts'
+import { Operative } from '../data/operatives.ts'
 
 export interface DataslateState {
   dataslates?: Dataslate[]
@@ -51,6 +52,8 @@ export interface DataslateState {
   abandonCurrentSpecOps: () => void
   checkCommendationCurrentSpecOps: (index: number) => void
   completeCurrentSpecOps: () => void
+  addOperative: (operative: Operative) => void
+  removeOperative: (operative: Operative) => void
 }
 
 const setError = useSystemError.getState().setError
@@ -463,6 +466,8 @@ const useDataslateStore = create<DataslateState>((set, get) => ({
 
     saveDataslate(newDataslate, set)
   },
+  addOperative: (operative: Operative) => {},
+  removeOperative: (operative: Operative) => {},
 }))
 
 export default useDataslateStore
