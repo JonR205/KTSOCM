@@ -1,9 +1,8 @@
-type Specialism = 'Combat' | 'Staunch' | 'Marksman' | 'Scout'
 type Rank = 'Adept' | 'Veteran' | 'Ace' | 'Grizzled' | 'Revered'
 export interface Operatives {
   name?: string
   type: string
-  specialisms: Specialism[]
+  specialisms: string[]
   xp: number
   rank: Rank
   battleHonours: []

@@ -193,8 +193,8 @@ const petitionTheGuild: Requisition = {
 }
 
 const hearthkynTheyn: Operatives = {
-  type: 'HEARTHKYN THEYN',
-  specialisms: [],
+  type: 'Hearthkyn Theyn',
+  specialisms: ['Combat', 'Staunch', 'Marksman'],
   xp: 0,
   rank: 'Adept',
   battleHonours: [],
@@ -204,7 +204,7 @@ const hearthkynTheyn: Operatives = {
 
 const hearthkynDozr: Operatives = {
   type: 'Hearthkyn Dozr',
-  specialisms: [],
+  specialisms: ['Combat', 'Staunch'],
   xp: 0,
   rank: 'Adept',
   battleHonours: [],
@@ -214,7 +214,7 @@ const hearthkynDozr: Operatives = {
 
 const hearthkynFieldMedic: Operatives = {
   type: 'Hearthkyn Field Medic',
-  specialisms: [],
+  specialisms: ['Staunch', 'Scout'],
   xp: 0,
   rank: 'Adept',
   battleHonours: [],
@@ -224,7 +224,7 @@ const hearthkynFieldMedic: Operatives = {
 
 const hearthkynGrenadier: Operatives = {
   type: 'Hearthkyn Grenadier',
-  specialisms: [],
+  specialisms: ['Staunch', 'Scout'],
   xp: 0,
   rank: 'Adept',
   battleHonours: [],
@@ -234,7 +234,7 @@ const hearthkynGrenadier: Operatives = {
 
 const hearthkynGunner: Operatives = {
   type: 'Hearthkyn Gunner',
-  specialisms: [],
+  specialisms: ['Staunch', 'Marksman'],
   xp: 0,
   rank: 'Adept',
   battleHonours: [],
@@ -244,7 +244,7 @@ const hearthkynGunner: Operatives = {
 
 const hearthkynJumpPackWarrior: Operatives = {
   type: 'Hearthkyn Jump Pack Warrior',
-  specialisms: [],
+  specialisms: ['Combat', 'Scout'],
   xp: 0,
   rank: 'Adept',
   battleHonours: [],
@@ -254,7 +254,7 @@ const hearthkynJumpPackWarrior: Operatives = {
 
 const hearthkynKinlynk: Operatives = {
   type: 'Hearthkyn Kinlynk',
-  specialisms: [],
+  specialisms: ['Staunch', 'Scout'],
   xp: 0,
   rank: 'Adept',
   battleHonours: [],
@@ -264,7 +264,7 @@ const hearthkynKinlynk: Operatives = {
 
 const hearthkynKognitaar: Operatives = {
   type: 'Hearthkyn Kognitaar',
-  specialisms: [],
+  specialisms: ['Staunch'],
   xp: 0,
   rank: 'Adept',
   battleHonours: [],
@@ -274,7 +274,7 @@ const hearthkynKognitaar: Operatives = {
 
 const hearthkynLokatr: Operatives = {
   type: 'Hearthkyn Lokatr',
-  specialisms: [],
+  specialisms: ['Staunch', 'Scout'],
   xp: 0,
   rank: 'Adept',
   battleHonours: [],
@@ -284,7 +284,7 @@ const hearthkynLokatr: Operatives = {
 
 const hearthkynLugger: Operatives = {
   type: 'Hearthkyn Lugger',
-  specialisms: [],
+  specialisms: ['Staunch'],
   xp: 0,
   rank: 'Adept',
   battleHonours: [],
@@ -294,7 +294,7 @@ const hearthkynLugger: Operatives = {
 
 const hearthkynWarrior: Operatives = {
   type: 'Hearthkyn Warrior',
-  specialisms: [],
+  specialisms: ['Staunch', 'Marksman'],
   xp: 0,
   rank: 'Adept',
   battleHonours: [],
