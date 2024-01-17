@@ -199,7 +199,7 @@ const hearthkynTheyn: Operatives = {
   rank: 'Adept',
   battleHonours: [],
   battleScars: [],
-  Resttally: 0,
+  restTally: 0,
 }
 
 const hearthkynDozr: Operatives = {
@@ -209,7 +209,7 @@ const hearthkynDozr: Operatives = {
   rank: 'Adept',
   battleHonours: [],
   battleScars: [],
-  Resttally: 0,
+  restTally: 0,
 }
 
 const hearthkynFieldMedic: Operatives = {
@@ -219,7 +219,7 @@ const hearthkynFieldMedic: Operatives = {
   rank: 'Adept',
   battleHonours: [],
   battleScars: [],
-  Resttally: 0,
+  restTally: 0,
 }
 
 const hearthkynGrenadier: Operatives = {
@@ -229,7 +229,7 @@ const hearthkynGrenadier: Operatives = {
   rank: 'Adept',
   battleHonours: [],
   battleScars: [],
-  Resttally: 0,
+  restTally: 0,
 }
 
 const hearthkynGunner: Operatives = {
@@ -239,7 +239,7 @@ const hearthkynGunner: Operatives = {
   rank: 'Adept',
   battleHonours: [],
   battleScars: [],
-  Resttally: 0,
+  restTally: 0,
 }
 
 const hearthkynJumpPackWarrior: Operatives = {
@@ -249,7 +249,7 @@ const hearthkynJumpPackWarrior: Operatives = {
   rank: 'Adept',
   battleHonours: [],
   battleScars: [],
-  Resttally: 0,
+  restTally: 0,
 }
 
 const hearthkynKinlynk: Operatives = {
@@ -259,7 +259,7 @@ const hearthkynKinlynk: Operatives = {
   rank: 'Adept',
   battleHonours: [],
   battleScars: [],
-  Resttally: 0,
+  restTally: 0,
 }
 
 const hearthkynKognitaar: Operatives = {
@@ -269,7 +269,7 @@ const hearthkynKognitaar: Operatives = {
   rank: 'Adept',
   battleHonours: [],
   battleScars: [],
-  Resttally: 0,
+  restTally: 0,
 }
 
 const hearthkynLokatr: Operatives = {
@@ -279,7 +279,7 @@ const hearthkynLokatr: Operatives = {
   rank: 'Adept',
   battleHonours: [],
   battleScars: [],
-  Resttally: 0,
+  restTally: 0,
 }
 
 const hearthkynLugger: Operatives = {
@@ -289,7 +289,7 @@ const hearthkynLugger: Operatives = {
   rank: 'Adept',
   battleHonours: [],
   battleScars: [],
-  Resttally: 0,
+  restTally: 0,
 }
 
 const hearthkynWarrior: Operatives = {
@@ -299,7 +299,7 @@ const hearthkynWarrior: Operatives = {
   rank: 'Adept',
   battleHonours: [],
   battleScars: [],
-  Resttally: 0,
+  restTally: 0,
 }
 
 export const hearthkynSalvager: Faction = {
