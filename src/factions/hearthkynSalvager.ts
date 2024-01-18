@@ -67,7 +67,7 @@ export const excavationTool: Gear = {
   name: 'Excavation Tool',
   description: 'The operative gains the following ability for the battle:',
   cost: 2,
-  ability: `At the end of the Set Up Barricades step, place one of your Clearance tokens within 1" of a part of a terrain feature with the Traversable trait and more than 6 inces from your opponent’s drop zone. Until the end of the battle, friendly Operative do not have to traverse that terrain feature; they can move through it as if it were not there, so long as they do so within 1" of that token. Note that they cannot finish the move on that terrain feature. You can select this item of equipment no more than three times for the battle.`,
+  ability: `At the end of the Set Up Barricades step, place one of your Clearance tokens within 1" of a part of a terrain feature with the Traversable trait and more than 6 inces from your opponent’s drop zone. Until the end of the battle, friendly operatives do not have to traverse that terrain feature; they can move through it as if it were not there, so long as they do so within 1" of that token. Note that they cannot finish the move on that terrain feature. You can select this item of equipment no more than three times for the battle.`,
   rare: false,
 }
 
@@ -174,7 +174,7 @@ const theirHearthBurns: Requisition = {
     'Purchase this Requisition after a game in which a friendly HEARTHKYN SALVAGER operative was incapacitated by an enemy operative. That friendly operative is harbouring a grudge against that enemy operative’s faction (make a note of this and the enemy’s Faction keyword in the ‘Notes’ section of its narrative datacard). Each time that friendly operative fights in combat or makes a shooting attack against an enemy operative with that Faction keyword, that enemy operative has one additional Grudge token for that combat or shooting attack.' +
     '\n' +
     '\n' +
-    'Once that friendly operative has incapacitated 3 enemy Operative with that Faction keyword (this does not have to be in the same battle), it’s no longer harbouring a grudge. You cannot use this Requisition if a friendly operative is already harbouring a grudge, unless you choose to renounce the grudge, in which case that friendly operative loses D6 experience points and is no longer harbouring a grudge.',
+    'Once that friendly operative has incapacitated 3 enemy Operatives with that Faction keyword (this does not have to be in the same battle), it’s no longer harbouring a grudge. You cannot use this Requisition if a friendly operative is already harbouring a grudge, unless you choose to renounce the grudge, in which case that friendly operative loses D6 experience points and is no longer harbouring a grudge.',
 }
 
 const returnToTheAncestor: Requisition = {
