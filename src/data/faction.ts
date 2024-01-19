@@ -1,4 +1,4 @@
-import { Operatives } from './operatives'
+import { Operative } from './operatives'
 import { Equipment } from './equipment.ts'
 import { Requisition } from './requisition.ts'
 import { hearthkynSalvager } from '../factions/hearthkynSalvager.ts'
@@ -21,7 +21,7 @@ export interface Faction {
   specOps: SpecOp[]
   coverImage?: string
   strategicAssets?: StrategicAssets[]
-  operatives: Operatives[]
+  operatives: Operative[]
 }
 
 export const factions: Array<Faction> = [

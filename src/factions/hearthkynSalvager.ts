@@ -1,4 +1,4 @@
-import { Operatives } from './../data/operatives'
+import { Operative } from './../data/operatives.ts'
 import { Faction } from '../data/faction.ts'
 import { Requisition } from '../data/requisition.ts'
 import { StrategicAssets } from '../data/strategicAssets.ts'
@@ -174,7 +174,7 @@ const theirHearthBurns: Requisition = {
     'Purchase this Requisition after a game in which a friendly HEARTHKYN SALVAGER operative was incapacitated by an enemy operative. That friendly operative is harbouring a grudge against that enemy operative’s faction (make a note of this and the enemy’s Faction keyword in the ‘Notes’ section of its narrative datacard). Each time that friendly operative fights in combat or makes a shooting attack against an enemy operative with that Faction keyword, that enemy operative has one additional Grudge token for that combat or shooting attack.' +
     '\n' +
     '\n' +
-    'Once that friendly operative has incapacitated 3 enemy operatives with that Faction keyword (this does not have to be in the same battle), it’s no longer harbouring a grudge. You cannot use this Requisition if a friendly operative is already harbouring a grudge, unless you choose to renounce the grudge, in which case that friendly operative loses D6 experience points and is no longer harbouring a grudge.',
+    'Once that friendly operative has incapacitated 3 enemy Operatives with that Faction keyword (this does not have to be in the same battle), it’s no longer harbouring a grudge. You cannot use this Requisition if a friendly operative is already harbouring a grudge, unless you choose to renounce the grudge, in which case that friendly operative loses D6 experience points and is no longer harbouring a grudge.',
 }
 
 const returnToTheAncestor: Requisition = {
@@ -192,7 +192,7 @@ const petitionTheGuild: Requisition = {
   rule: 'Purchase this Requisition before a game, if your kill team is currently conducting a Spec Op. Randomly determine one Recon or Security Tac Op. Until that Spec Op ends, keep a tally of victory points you score from that Tac Op. When you add the fifth mark to the tally, you can add one item of rare equipment to your stash.',
 }
 
-const hearthkynTheyn: Operatives = {
+const hearthkynTheyn: Operative = {
   type: 'Hearthkyn Theyn',
   specialisms: ['Combat', 'Staunch', 'Marksman'],
   xp: 0,
@@ -202,7 +202,7 @@ const hearthkynTheyn: Operatives = {
   restTally: 0,
 }
 
-const hearthkynDozr: Operatives = {
+const hearthkynDozr: Operative = {
   type: 'Hearthkyn Dozr',
   specialisms: ['Combat', 'Staunch'],
   xp: 0,
@@ -212,7 +212,7 @@ const hearthkynDozr: Operatives = {
   restTally: 0,
 }
 
-const hearthkynFieldMedic: Operatives = {
+const hearthkynFieldMedic: Operative = {
   type: 'Hearthkyn Field Medic',
   specialisms: ['Staunch', 'Scout'],
   xp: 0,
@@ -222,7 +222,7 @@ const hearthkynFieldMedic: Operatives = {
   restTally: 0,
 }
 
-const hearthkynGrenadier: Operatives = {
+const hearthkynGrenadier: Operative = {
   type: 'Hearthkyn Grenadier',
   specialisms: ['Staunch', 'Scout'],
   xp: 0,
@@ -232,7 +232,7 @@ const hearthkynGrenadier: Operatives = {
   restTally: 0,
 }
 
-const hearthkynGunner: Operatives = {
+const hearthkynGunner: Operative = {
   type: 'Hearthkyn Gunner',
   specialisms: ['Staunch', 'Marksman'],
   xp: 0,
@@ -242,7 +242,7 @@ const hearthkynGunner: Operatives = {
   restTally: 0,
 }
 
-const hearthkynJumpPackWarrior: Operatives = {
+const hearthkynJumpPackWarrior: Operative = {
   type: 'Hearthkyn Jump Pack Warrior',
   specialisms: ['Combat', 'Scout'],
   xp: 0,
@@ -252,7 +252,7 @@ const hearthkynJumpPackWarrior: Operatives = {
   restTally: 0,
 }
 
-const hearthkynKinlynk: Operatives = {
+const hearthkynKinlynk: Operative = {
   type: 'Hearthkyn Kinlynk',
   specialisms: ['Staunch', 'Scout'],
   xp: 0,
@@ -262,7 +262,7 @@ const hearthkynKinlynk: Operatives = {
   restTally: 0,
 }
 
-const hearthkynKognitaar: Operatives = {
+const hearthkynKognitaar: Operative = {
   type: 'Hearthkyn Kognitaar',
   specialisms: ['Staunch'],
   xp: 0,
@@ -272,7 +272,7 @@ const hearthkynKognitaar: Operatives = {
   restTally: 0,
 }
 
-const hearthkynLokatr: Operatives = {
+const hearthkynLokatr: Operative = {
   type: 'Hearthkyn Lokatr',
   specialisms: ['Staunch', 'Scout'],
   xp: 0,
@@ -282,7 +282,7 @@ const hearthkynLokatr: Operatives = {
   restTally: 0,
 }
 
-const hearthkynLugger: Operatives = {
+const hearthkynLugger: Operative = {
   type: 'Hearthkyn Lugger',
   specialisms: ['Staunch'],
   xp: 0,
@@ -292,7 +292,7 @@ const hearthkynLugger: Operatives = {
   restTally: 0,
 }
 
-const hearthkynWarrior: Operatives = {
+const hearthkynWarrior: Operative = {
   type: 'Hearthkyn Warrior',
   specialisms: ['Staunch', 'Marksman'],
   xp: 0,

@@ -16,6 +16,7 @@ import { getGallowdarkExpedition } from '../data/gallowdarkExpedition.ts'
 import useGallowdarkExpeditionStore from './gallowdarkExpeditionStore.ts'
 import SpecOps from '../data/SpecOps.ts'
 import { Faction } from '../data/faction.ts'
+import { Operative } from '../data/operatives.ts'
 
 export interface DataslateState {
   dataslates?: Dataslate[]
@@ -51,6 +52,8 @@ export interface DataslateState {
   abandonCurrentSpecOps: () => void
   checkCommendationCurrentSpecOps: (index: number) => void
   completeCurrentSpecOps: () => void
+  addOperative: (operative: Operative) => void
+  removeOperative: (operative: Operative) => void
 }
 
 const setError = useSystemError.getState().setError
@@ -460,6 +463,31 @@ const useDataslateStore = create<DataslateState>((set, get) => ({
 
     newDataslate.completedSpecOps.unshift(newDataslate.currentSpecOps)
     newDataslate.currentSpecOps = undefined
+
+    saveDataslate(newDataslate, set)
+  },
+
+  addOperative: (operative: Operative) => {
+    const selectedDataslate = get().selectedDataslate
+    if (!selectedDataslate) return
+
+    const newDataslate: Dataslate = { ...selectedDataslate }
+    newDataslate?.operatives?.push(operative)
+
+    saveDataslate(newDataslate, set)
+  },
+
+  removeOperative: (operative: Operative) => {
+    const selectedDataslate = get().selectedDataslate
+    if (!selectedDataslate) return
+
+    const operativeIndex = selectedDataslate.operatives?.findIndex(
+      ({ name }) => name === operative.name,
+    )
+    if (!operativeIndex) return
+
+    const newDataslate = { ...selectedDataslate }
+    newDataslate.operatives?.splice(operativeIndex, 1)
 
     saveDataslate(newDataslate, set)
   },
