@@ -1,12 +1,20 @@
+import { useContext } from 'react'
+import { sessionContext } from '../context/sessionContext.ts'
+import useDataslateStore from '../stores/dataslateStore.ts'
+
+
 interface Props {
   showOperativemodal: boolean
   onClose: () => void
 }
-
+//
 const OperativeModal = (props: Props) => {
   const { showOperativemodal, onClose } = props
 
   const isActive = showOperativemodal ? 'is-active' : ''
+  const session = useContext(sessionContext)
+  const assignOperative = useDataslateStore(state => state.)
+
 
   return (
     <>

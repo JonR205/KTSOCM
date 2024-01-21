@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import CasualtyCheckModal from '../modals/CasualtyCheckModal'
 import RecoveryTestModal from '../modals/RecoveryTestModal'
-import OperativeModal from '../modals/OperativeModal'
+import OperativeModal from '../modals/AddOperativeModal'
 
 const Operatives = () => {
   const [showCasualtyCheckModal, setShowCasualtyCheckModal] = useState(false)
