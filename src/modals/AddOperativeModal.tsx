@@ -1,20 +1,21 @@
 import { useContext } from 'react'
 import { sessionContext } from '../context/sessionContext.ts'
 import useDataslateStore from '../stores/dataslateStore.ts'
-
+import { Dataslate, updateDataslate } from '../data/dataslate.ts'
+import { useForm } from 'react-hook-form'
+import Operatives from '../component/Operatives.tsx'
 
 interface Props {
   showOperativemodal: boolean
   onClose: () => void
+  dataslate?: Dataslate
+
 }
-//
-const OperativeModal = (props: Props) => {
+
+function AddOperativeModal(props: Props) {
   const { showOperativemodal, onClose } = props
 
   const isActive = showOperativemodal ? 'is-active' : ''
-  const session = useContext(sessionContext)
-  const assignOperative = useDataslateStore(state => state.)
-
 
   return (
     <>
@@ -27,10 +28,13 @@ const OperativeModal = (props: Props) => {
             <p className="modal-card-title"> Operatives</p>
             <button className="delete" onClick={onClose}></button>
           </header>
+          <form>
+
+          </form>
         </div>
       </div>
     </>
   )
 }
 
-export default OperativeModal
+export default AddOperativeModal

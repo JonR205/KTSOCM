@@ -1,12 +1,17 @@
 import { useState } from 'react'
 import CasualtyCheckModal from '../modals/CasualtyCheckModal'
 import RecoveryTestModal from '../modals/RecoveryTestModal'
-import OperativeModal from '../modals/AddOperativeModal'
+import AddOperativeModal from '../modals/AddOperativeModal'
+import useDataslateStore from '../stores/dataslateStore'
 
 const Operatives = () => {
   const [showCasualtyCheckModal, setShowCasualtyCheckModal] = useState(false)
   const [showRecoveryTestModal, setRecoveryTestModal] = useState(false)
   const [showOperativemodal, setShowOperativemodal] = useState(false)
+  const selectedDataslate = useDataslateStore(
+    (state) => state.selectedDataslate
+  )
+
 
   return (
     <>
@@ -19,9 +24,10 @@ const Operatives = () => {
         showRecoveryTestModal={showRecoveryTestModal}
         onClose={() => setRecoveryTestModal(false)}
       />
-      <OperativeModal
+      <AddOperativeModal
         showOperativemodal={showOperativemodal}
         onClose={() => setShowOperativemodal(false)}
+        dataslate={selectedDataslate} 
       />
       showOperativemodal
       <div className={'buttons'}>
