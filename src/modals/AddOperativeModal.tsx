@@ -20,9 +20,10 @@ function AddOperativeModal(props: Props) {
     (state) => state.selectedDataslate?.faction.operatives,
   )
 
+  const [operatives, setOperatives] = useState(factionOperatives?.push() ?? '')
+
   const {
     register,
-    handleSubmit,
     formState: { errors },
   } = useForm<FormData>({})
 
@@ -51,6 +52,12 @@ function AddOperativeModal(props: Props) {
                   ))}
                 </select>
               </div>
+              <button className="button is-primary" type="submit">
+                Submit
+              </button>
+              <button className="button" onClick={onClose}>
+                Cancel
+              </button>
             </div>
           </form>
         </div>
