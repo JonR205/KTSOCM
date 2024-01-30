@@ -3,7 +3,19 @@ import { sessionContext } from '../context/sessionContext.ts'
 import useDataslateStore from '../stores/dataslateStore.ts'
 import { Dataslate, updateDataslate } from '../data/dataslate.ts'
 import { useForm } from 'react-hook-form'
-import Operatives from '../component/Operatives.tsx'
+import { Operatives } from '../component/Operatives.tsx'
+
+type FormData = {
+  name?: string
+  type: string
+  specialisms: []
+  xp: 0
+  rank: 'Adept'
+  battleHonours: []
+  battleScars: []
+  restTally: number
+  notes?: string
+}
 
 interface Props {
   showOperativemodal: boolean
@@ -16,16 +28,23 @@ function AddOperativeModal(props: Props) {
 
   const isActive = showOperativemodal ? 'is-active' : ''
 
+  const session = useContext(sessionContext)
+  const updateDataslate = useDataslateStore((state) => state.addOperative)
+
   const factionOperatives = useDataslateStore(
     (state) => state.selectedDataslate?.faction.operatives,
   )
 
-  const [operatives, setOperatives] = useState(factionOperatives?.push() ?? '')
-
   const {
-    register,
+    handleSubmit,
     formState: { errors },
   } = useForm<FormData>({})
+
+  const onSubmit = (data: FormData) => {
+    factionOperatives?.push(data)
+
+    onClose()
+  }
 
   return (
     <>
@@ -52,7 +71,7 @@ function AddOperativeModal(props: Props) {
                   ))}
                 </select>
               </div>
-              <button className="button is-primary" type="submit">
+              <button className="button is-primary" onClick={handleSubmit}>
                 Submit
               </button>
               <button className="button" onClick={onClose}>
