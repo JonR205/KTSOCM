@@ -46,6 +46,8 @@ function AddOperativeModal(props: Props) {
     const type = operativeTypeRef.current?.value ?? ''
 
     saveBaseInfo(name, type)
+    console.log(type)
+
     props.onClose()
   }
 
@@ -78,27 +80,24 @@ function AddOperativeModal(props: Props) {
                 ))}
               </select>
             </div>
+            <div className={'field'}>
+              <label className="label">Operative Name</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  defaultValue={operativeTypeRef.current?.value}
+                  ref={operativeNameRef}
+                />
+              </div>
+            </div>
+
             <button className="button is-primary" onClick={onSave}>
               Submit
             </button>
             <button className="button" onClick={onClose}>
               Cancel
             </button>
-            <div className="container">
-              <section className="section">
-                <div className="columns is-multiline">
-                  {selectedOperatives?.map(({ type }, index) => (
-                    <p
-                      className={
-                        'is-size-6 has-text-weight-bold has-text-grey-lighter'
-                      }
-                      key={index}>
-                      {type}
-                    </p>
-                  ))}
-                </div>
-              </section>
-            </div>
           </div>
         </div>
       </div>

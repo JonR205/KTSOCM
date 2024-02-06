@@ -9,9 +9,8 @@ const Operatives = () => {
   const [showRecoveryTestModal, setRecoveryTestModal] = useState(false)
   const [showOperativemodal, setShowOperativemodal] = useState(false)
   const selectedDataslate = useDataslateStore(
-    (state) => state.selectedDataslate
+    (state) => state.selectedDataslate,
   )
-
 
   return (
     <>
@@ -27,9 +26,9 @@ const Operatives = () => {
       <AddOperativeModal
         showOperativemodal={showOperativemodal}
         onClose={() => setShowOperativemodal(false)}
-        dataslate={selectedDataslate} 
+        dataslate={selectedDataslate}
       />
-      showOperativemodal
+
       <div className={'buttons'}>
         <button
           className={'button'}
