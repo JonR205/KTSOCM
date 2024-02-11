@@ -3,7 +3,7 @@ import { sessionContext } from '../context/sessionContext.ts'
 import useDataslateStore from '../stores/dataslateStore.ts'
 import { Dataslate, updateDataslate } from '../data/dataslate.ts'
 import { useForm } from 'react-hook-form'
-import { Operatives } from '../component/Operatives.tsx'
+import { Operative } from '../data/operatives.ts'
 import { useRef } from 'react'
 
 // type FormData = {
@@ -29,7 +29,7 @@ function AddOperativeModal(props: Props) {
 
   const isActive = showOperativemodal ? 'is-active' : ''
 
-  const saveBaseInfo = useDataslateStore((state) => state.saveBaseInfo)
+  const saveOperative = useDataslateStore((state) => state.addOperative)
 
   const factionOperatives = useDataslateStore(
     (state) => state.selectedDataslate?.faction.operatives,
@@ -44,9 +44,20 @@ function AddOperativeModal(props: Props) {
   const onSave = () => {
     const name = operativeNameRef.current?.value ?? ''
     const type = operativeTypeRef.current?.value ?? ''
+    const newOperative: Operative = {
+      name: name,
+      type: type,
+      specialisms: [],
+      xp: 0,
+      rank: 'Adept',
+      battleHonours: [],
+      battleScars: [],
+      restTally: 0,
+    }
 
-    saveBaseInfo(name, type)
-    console.log(type)
+    saveOperative(newOperative)
+    console.log(newOperative)
+    console.log(saveOperative)
 
     props.onClose()
   }
