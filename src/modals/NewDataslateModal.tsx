@@ -21,7 +21,7 @@ const NewDataslateModal = (props: Props) => {
   const { showModal, onClose } = props
 
   const session = useContext(sessionContext)
-  const createDataslate = useDataslateStore(state => state.createDataslate)
+  const createDataslate = useDataslateStore((state) => state.createDataslate)
 
   const schema: ZodType<FormData> = z.object({
     killTeamName: z.string().min(2).max(50),

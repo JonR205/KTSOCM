@@ -472,7 +472,8 @@ const useDataslateStore = create<DataslateState>((set, get) => ({
     if (!selectedDataslate) return
 
     const newDataslate: Dataslate = { ...selectedDataslate }
-    newDataslate?.operatives?.push(operative)
+    if (!newDataslate.operatives) newDataslate.operatives = []
+    newDataslate.operatives?.push(operative)
 
     saveDataslate(newDataslate, set)
   },

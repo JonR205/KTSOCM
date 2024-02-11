@@ -1,22 +1,7 @@
-import { useContext, useState } from 'react'
-import { sessionContext } from '../context/sessionContext.ts'
-import useDataslateStore from '../stores/dataslateStore.ts'
-import { Dataslate, updateDataslate } from '../data/dataslate.ts'
-import { useForm } from 'react-hook-form'
-import { Operative } from '../data/operatives.ts'
 import { useRef } from 'react'
-
-// type FormData = {
-//   name?: string
-//   type: string
-//   specialisms: []
-//   xp: 0
-//   rank: 'Adept'
-//   battleHonours: []
-//   battleScars: []
-//   restTally: number
-//   notes?: string
-// }
+import { Dataslate } from '../data/dataslate.ts'
+import { Operative } from '../data/operatives.ts'
+import useDataslateStore from '../stores/dataslateStore.ts'
 
 interface Props {
   showOperativemodal: boolean
@@ -56,8 +41,6 @@ function AddOperativeModal(props: Props) {
     }
 
     saveOperative(newOperative)
-    console.log(newOperative)
-    console.log(saveOperative)
 
     props.onClose()
   }
