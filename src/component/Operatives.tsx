@@ -11,6 +11,9 @@ const Operatives = () => {
   const selectedDataslate = useDataslateStore(
     (state) => state.selectedDataslate,
   )
+  const assignedOperatives = useDataslateStore(
+    (state) => state.selectedDataslate?.operatives,
+  )
 
   return (
     <>
@@ -41,8 +44,27 @@ const Operatives = () => {
         <button
           className={'button'}
           onClick={() => setShowOperativemodal(true)}>
-          Operatives
+          Add Operatives
         </button>
+        {assignedOperatives?.map((operative, index) => {
+          return (
+            <>
+              <div className="container">
+                <div className="columns is-multiline">
+                  <div key={index} className="column is-full">
+                    <ul className="is-lower-roman">
+                      <li>
+                        Type: {operative.type}
+                        <br></br>
+                        Name: {operative.name}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </>
+          )
+        })}
       </div>
     </>
   )
