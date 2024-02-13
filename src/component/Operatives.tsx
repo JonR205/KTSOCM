@@ -46,25 +46,29 @@ const Operatives = () => {
           onClick={() => setShowOperativemodal(true)}>
           Add Operatives
         </button>
-        {assignedOperatives?.map((operative, index) => {
-          return (
-            <>
-              <div className="container">
-                <div className="columns is-multiline">
-                  <div key={index} className="column is-full">
-                    <ul className="is-lower-roman">
-                      <li>
-                        Type: {operative.type}
-                        <br></br>
-                        Name: {operative.name}
-                      </li>
-                    </ul>
-                  </div>
+        <div className={'has-text-centered '}>
+          <div>
+            <b className="title is-5">Current Oeratives</b>
+          </div>
+          {assignedOperatives?.map((operative, index) => {
+            return (
+              <>
+                <div key={index} className="column is-full is-secondary">
+                  <ul
+                    className={'is-family-secondary is-size-6 pl-5'}
+                    style={{ listStyleType: 'disc' }}>
+                    <li>
+                      Type: {operative.type}
+                      <br></br>
+                      {operative.name && 'Name: ' + operative.name}
+                      {!operative.name && 'Name: ' + operative.type}
+                    </li>
+                  </ul>
                 </div>
-              </div>
-            </>
-          )
-        })}
+              </>
+            )
+          })}
+        </div>
       </div>
     </>
   )
