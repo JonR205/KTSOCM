@@ -46,7 +46,7 @@ const Operatives = () => {
           onClick={() => setShowOperativemodal(true)}>
           Add Operatives
         </button>
-        <div className={'has-text-centered '}>
+        <div className={'box has-text-centered'}>
           <div>
             <b className="title is-5">Current Oeratives</b>
           </div>
@@ -55,7 +55,7 @@ const Operatives = () => {
               <>
                 <div key={index} className="column is-full is-secondary">
                   <ul
-                    className={'is-family-secondary is-size-6 pl-5'}
+                    className={' is-size-6 pl-5'}
                     style={{ listStyleType: 'disc' }}>
                     <li>
                       Type: {operative.type}
