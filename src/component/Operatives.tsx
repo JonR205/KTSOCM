@@ -3,6 +3,8 @@ import CasualtyCheckModal from '../modals/CasualtyCheckModal'
 import RecoveryTestModal from '../modals/RecoveryTestModal'
 import AddOperativeModal from '../modals/AddOperativeModal'
 import useDataslateStore from '../stores/dataslateStore'
+import OperativeProfileModal from '../modals/OperativeProfileModal'
+import { Operative } from '../data/operatives'
 
 const Operatives = () => {
   const [showCasualtyCheckModal, setShowCasualtyCheckModal] = useState(false)
@@ -14,6 +16,7 @@ const Operatives = () => {
   const assignedOperatives = useDataslateStore(
     (state) => state.selectedDataslate?.operatives,
   )
+  const [operativeProfile, setOperativeProfile] = useState<Operative>()
 
   return (
     <>
@@ -59,9 +62,16 @@ const Operatives = () => {
                     style={{ listStyleType: 'disc' }}>
                     <li>
                       Type: {operative.type}
+                      <a onClick={() => setOperativeProfile(operative)}>
+                        <span className="pl-2"> {operative.type}</span>
+                      </a>
                       <br></br>
                       {operative.name && 'Name: ' + operative.name}
                       {!operative.name && 'Name: ' + operative.type}
+                      <OperativeProfileModal
+                        operative={operative}
+                        onClose={() => setOperativeProfile(undefined)}
+                      />
                     </li>
                   </ul>
                 </div>
