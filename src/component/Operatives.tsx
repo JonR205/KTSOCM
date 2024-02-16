@@ -10,6 +10,8 @@ const Operatives = () => {
   const [showCasualtyCheckModal, setShowCasualtyCheckModal] = useState(false)
   const [showRecoveryTestModal, setRecoveryTestModal] = useState(false)
   const [showOperativemodal, setShowOperativemodal] = useState(false)
+  const [showOperativeProfilemodal, setShowOperativeProfilemodal] =
+    useState(false)
   const selectedDataslate = useDataslateStore(
     (state) => state.selectedDataslate,
   )
@@ -60,19 +62,20 @@ const Operatives = () => {
                   <ul
                     className={' is-size-6 pl-5'}
                     style={{ listStyleType: 'disc' }}>
-                    <li>
-                      Type: {operative.type}
-                      <a onClick={() => setOperativeProfile(operative)}>
+                    <a onClick={() => setShowOperativeProfilemodal(true)}>
+                      <li>
+                        Type: {operative.type}
                         <span className="pl-2"> {operative.type}</span>
-                      </a>
-                      <br></br>
-                      {operative.name && 'Name: ' + operative.name}
-                      {!operative.name && 'Name: ' + operative.type}
-                      <OperativeProfileModal
-                        operative={operative}
-                        onClose={() => setOperativeProfile(undefined)}
-                      />
-                    </li>
+                        <br></br>
+                        {operative.name && 'Name: ' + operative.name}
+                        {!operative.name && 'Name: ' + operative.type}
+                        <OperativeProfileModal
+                          showModal={showOperativeProfilemodal}
+                          operative={operative}
+                          onClose={() => setShowOperativeProfilemodal(false)}
+                        />
+                      </li>
+                    </a>
                   </ul>
                 </div>
               </>

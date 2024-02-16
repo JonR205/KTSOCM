@@ -1,14 +1,15 @@
 import { Operative } from '../data/operatives'
 
 interface Props {
+  showModal: boolean
   operative?: Operative
   onClose: () => void
 }
 
 const OperativeProfileModal = (props: Props) => {
-  const { operative, onClose } = props
+  const { showModal, onClose, operative } = props
 
-  const isActive = operative ? 'is-active' : ''
+  const isActive = showModal ? 'is-active' : ''
 
   if (!operative) return null
   return (
