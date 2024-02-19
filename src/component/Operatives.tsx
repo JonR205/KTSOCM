@@ -60,9 +60,9 @@ const Operatives = () => {
                   <ul
                     className={' is-size-6 pl-5'}
                     style={{ listStyleType: 'disc' }}>
-                    <li>
-                      Type: {operative.type}
-                      <a onClick={() => setOperativeProfile(operative)}>
+                    <a onClick={() => setShowOperativeProfilemodal(true)}>
+                      <li>
+                        Type: {operative.type}
                         <span className="pl-2"> {operative.type}</span>
                       </a>
                       <br></br>
