@@ -17,6 +17,7 @@ const Operatives = () => {
     (state) => state.selectedDataslate?.operatives,
   )
   const [operativeProfile, setOperativeProfile] = useState<Operative>()
+  console.log(operativeProfile)
 
   return (
     <>
@@ -60,19 +61,19 @@ const Operatives = () => {
                   <ul
                     className={' is-size-6 pl-5'}
                     style={{ listStyleType: 'disc' }}>
-                    <a onClick={() => setShowOperativeProfilemodal(true)}>
+                    <a onClick={() => setOperativeProfile(operative)}>
                       <li>
                         Type: {operative.type}
                         <span className="pl-2"> {operative.type}</span>
-                      </a>
-                      <br></br>
-                      {operative.name && 'Name: ' + operative.name}
-                      {!operative.name && 'Name: ' + operative.type}
-                      <OperativeProfileModal
-                        operative={operativeProfile}
-                        onClose={() => setOperativeProfile(undefined)}
-                      />
-                    </li>
+                        <br></br>
+                        {operative.name && 'Name: ' + operative.name}
+                        {!operative.name && 'Name: ' + operative.type}
+                        <OperativeProfileModal
+                          operative={operativeProfile}
+                          onClose={() => setOperativeProfile(undefined)}
+                        />
+                      </li>
+                    </a>
                   </ul>
                 </div>
               </>
