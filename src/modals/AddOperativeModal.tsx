@@ -4,15 +4,15 @@ import { Operative } from '../data/operatives.ts'
 import useDataslateStore from '../stores/dataslateStore.ts'
 
 interface Props {
-  showOperativemodal: boolean
+  showAddOperativemodal: boolean
   onClose: () => void
   dataslate?: Dataslate
 }
 
 function AddOperativeModal(props: Props) {
-  const { showOperativemodal, onClose } = props
+  const { showAddOperativemodal, onClose } = props
 
-  const isActive = showOperativemodal ? 'is-active' : ''
+  const isActive = showAddOperativemodal ? 'is-active' : ''
 
   const saveOperative = useDataslateStore((state) => state.addOperative)
 

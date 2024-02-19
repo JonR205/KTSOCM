@@ -9,7 +9,7 @@ import { Operative } from '../data/operatives'
 const Operatives = () => {
   const [showCasualtyCheckModal, setShowCasualtyCheckModal] = useState(false)
   const [showRecoveryTestModal, setRecoveryTestModal] = useState(false)
-  const [showOperativemodal, setShowOperativemodal] = useState(false)
+  const [showAddOperativemodal, setShowAddOperativemodal] = useState(false)
   const selectedDataslate = useDataslateStore(
     (state) => state.selectedDataslate,
   )
@@ -30,8 +30,8 @@ const Operatives = () => {
         onClose={() => setRecoveryTestModal(false)}
       />
       <AddOperativeModal
-        showOperativemodal={showOperativemodal}
-        onClose={() => setShowOperativemodal(false)}
+        showAddOperativemodal={showAddOperativemodal}
+        onClose={() => setShowAddOperativemodal(false)}
         dataslate={selectedDataslate}
       />
 
@@ -46,7 +46,7 @@ const Operatives = () => {
         </button>
         <button
           className={'button'}
-          onClick={() => setShowOperativemodal(true)}>
+          onClick={() => setShowAddOperativemodal(true)}>
           Add Operatives
         </button>
         <div className={'box has-text-centered'}>
@@ -69,7 +69,7 @@ const Operatives = () => {
                       {operative.name && 'Name: ' + operative.name}
                       {!operative.name && 'Name: ' + operative.type}
                       <OperativeProfileModal
-                        operative={operative}
+                        operative={operativeProfile}
                         onClose={() => setOperativeProfile(undefined)}
                       />
                     </li>
