@@ -1,4 +1,5 @@
 import { Operative } from '../data/operatives'
+import { operativeAssigned } from '../data/requisition.ts'
 import useDataslateStore from '../stores/dataslateStore.ts'
 
 interface Props {
@@ -18,8 +19,20 @@ const OperativeProfile = (props: Props) => {
     restTally,
     notes,
   } = operative
+
+  return (
+    <>
+      <div>Type: {type}</div>
+      <div>Name: {name} </div>
+      <div>Specialisms: {specialisms}</div>
+      <div>XP: {xp}</div>
+      <div>Rank: {rank}</div>
+      <div>Battle Honours: {battleHonours}</div>
+      <div>Battle Scars: {battleScars}</div>
+      <div>Rest Tally: {restTally}</div>
+      <div>Notes: {notes}</div>
+    </>
+  )
 }
 
-const selectedOperatives = useDataslateStore(
-  (state) => state.selectedDataslate?.operatives,
-)
+export default OperativeProfile

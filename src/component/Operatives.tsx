@@ -16,8 +16,7 @@ const Operatives = () => {
   const assignedOperatives = useDataslateStore(
     (state) => state.selectedDataslate?.operatives,
   )
-  const [operativeProfile, setOperativeProfile] = useState(false)
-  console.log('line 20: ' + operativeProfile)
+  const [operativeProfile, setOperativeProfile] = useState<Operative>()
 
   return (
     <>
@@ -62,7 +61,7 @@ const Operatives = () => {
                     className={' is-size-6 pl-5'}
                     style={{ listStyleType: 'disc' }}>
                     <li>
-                      <a onClick={() => setOperativeProfile(true)}>
+                      <a onClick={() => setOperativeProfile(operative)}>
                         Type: {operative.type}{' '}
                       </a>
                       <br></br>
@@ -70,7 +69,7 @@ const Operatives = () => {
                       {!operative.name && 'Name: ' + operative.type}
                       <OperativeProfileModal
                         operative={operativeProfile}
-                        onClose={() => setOperativeProfile(false)}
+                        onClose={() => setOperativeProfile(undefined)}
                       />
                     </li>
                   </ul>
