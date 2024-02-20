@@ -1,7 +1,7 @@
 import { Operative } from '../data/operatives'
 
 interface Props {
-  operative?: Operative
+  operative?: boolean
   onClose: () => void
 }
 
