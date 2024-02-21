@@ -11,6 +11,9 @@ const Operatives = () => {
   const selectedDataslate = useDataslateStore(
     (state) => state.selectedDataslate,
   )
+  const assignedOperatives = useDataslateStore(
+    (state) => state.selectedDataslate?.operatives,
+  )
 
   return (
     <>
@@ -41,8 +44,31 @@ const Operatives = () => {
         <button
           className={'button'}
           onClick={() => setShowOperativemodal(true)}>
-          Operatives
+          Add Operatives
         </button>
+        <div className={'box has-text-centered'}>
+          <div>
+            <b className="title is-5">Current Oeratives</b>
+          </div>
+          {assignedOperatives?.map((operative, index) => {
+            return (
+              <>
+                <div key={index} className="column is-full is-secondary">
+                  <ul
+                    className={' is-size-6 pl-5'}
+                    style={{ listStyleType: 'disc' }}>
+                    <li>
+                      Type: {operative.type}
+                      <br></br>
+                      {operative.name && 'Name: ' + operative.name}
+                      {!operative.name && 'Name: ' + operative.type}
+                    </li>
+                  </ul>
+                </div>
+              </>
+            )
+          })}
+        </div>
       </div>
     </>
   )
