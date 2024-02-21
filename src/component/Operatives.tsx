@@ -69,6 +69,7 @@ const Operatives = () => {
                       {!operative.name && 'Name: ' + operative.type}
                       <OperativeProfileModal
                         operative={operativeProfile}
+                        index={index}
                         onClose={() => setOperativeProfile(undefined)}
                       />
                     </li>

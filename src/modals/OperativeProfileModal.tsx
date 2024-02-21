@@ -3,9 +3,11 @@ import OperativeProfile from '../component/OperativeProfile'
 import { Operative } from '../data/operatives'
 import ConfirmModal from '../modals/ConfirmModal.tsx'
 import { useState } from 'react'
+import useDataslateStore from '../stores/dataslateStore.ts'
 
 interface Props {
   operative?: Operative
+  index?: number
   onClose: () => void
 }
 
@@ -14,13 +16,9 @@ const OperativeProfileModal = (props: Props) => {
   const [showDeleteOperativeModal, setshowDeleteOperativeModal] =
     useState(false)
 
-  console.log(showDeleteOperativeModal)
-
   const isActive = operative ? 'is-active' : ''
 
-  function removeOperative(operative: Operative) {
-    throw new Error('Function not implemented.')
-  }
+  const removeOperative = useDataslateStore((state) => state.removeOperative)
 
   if (!operative) return null
 
@@ -47,7 +45,8 @@ const OperativeProfileModal = (props: Props) => {
         message={'Are you sure you want to delete operative'}
         onConfirm={() => {
           removeOperative(operative)
-          // setshowDeleteOperativeModal(false)
+
+          setshowDeleteOperativeModal(false)
         }}
         onClose={() => setshowDeleteOperativeModal(false)}
       />
