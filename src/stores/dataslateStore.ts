@@ -485,13 +485,11 @@ const useDataslateStore = create<DataslateState>((set, get) => ({
     const operativeIndex = selectedDataslate.operatives?.findIndex(
       ({ name }) => name === operative.name,
     )
-    console.log('index ' + operativeIndex)
 
-    if (!operativeIndex) return
+    if (operativeIndex === -1) return
 
     const newDataslate = { ...selectedDataslate }
     newDataslate.operatives?.splice(operativeIndex, 1)
-    console.log('newdataslate' + newDataslate)
 
     saveDataslate(newDataslate, set)
   },
