@@ -55,13 +55,12 @@ const Operatives = () => {
           </div>
           {assignedOperatives?.map((operative, index) => {
             return (
-              <>
+              <div key={index}>
                 <div key={index} className="column is-full is-secondary">
-                  <ul
-                    className={' is-size-6 pl-5'}
-                    style={{ listStyleType: 'disc' }}>
+                  <ul className={' is-size-6 pl-5'}>
                     <li>
                       <a onClick={() => setOperativeProfile(operative)}>
+                        {' '}
                         Type: {operative.type}{' '}
                       </a>
                       <br></br>
@@ -69,13 +68,12 @@ const Operatives = () => {
                       {!operative.name && 'Name: ' + operative.type}
                       <OperativeProfileModal
                         operative={operativeProfile}
-                        index={index}
                         onClose={() => setOperativeProfile(undefined)}
                       />
                     </li>
                   </ul>
                 </div>
-              </>
+              </div>
             )
           })}
         </div>
