@@ -10,6 +10,7 @@ const Operatives = () => {
   const [showCasualtyCheckModal, setShowCasualtyCheckModal] = useState(false)
   const [showRecoveryTestModal, setRecoveryTestModal] = useState(false)
   const [showAddOperativemodal, setShowAddOperativemodal] = useState(false)
+
   const selectedDataslate = useDataslateStore(
     (state) => state.selectedDataslate,
   )
