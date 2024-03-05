@@ -485,7 +485,7 @@ const useDataslateStore = create<DataslateState>((set, get) => ({
     const operativeIndex = selectedDataslate.operatives?.findIndex(
       ({ name }) => name === operative.name,
     )
-    if (!operativeIndex) return
+    if (operativeIndex == -1 || operativeIndex === undefined) return
 
     const newDataslate = { ...selectedDataslate }
     newDataslate.operatives?.splice(operativeIndex, 1)
