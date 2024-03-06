@@ -4,6 +4,7 @@ import { Operative } from '../data/operatives'
 import ConfirmModal from '../modals/ConfirmModal.tsx'
 import { useState } from 'react'
 import useDataslateStore from '../stores/dataslateStore.ts'
+import EditOperativeProfileModal from './EditOperativeProfileModal.tsx'
 
 interface Props {
   operative?: Operative
@@ -16,6 +17,10 @@ const OperativeProfileModal = (props: Props) => {
   const [showDeleteOperativeModal, setshowDeleteOperativeModal] =
     useState(false)
 
+  const [showEditOperativeModal, setShowEditOperativeModal] =
+    useState<Operative>()
+  const [operativeProfile, setOperativeProfile] = useState<Operative>()
+
   const isActive = operative ? 'is-active' : ''
 
   const removeOperative = useDataslateStore((state) => state.removeOperative)
@@ -27,6 +32,12 @@ const OperativeProfileModal = (props: Props) => {
       <div className={`modal ${isActive}`}>
         <div className="modal-background" onClick={onClose} />
         <div className="modal-content">
+          <button
+            className="button is-small"
+            onClick={() => setOperativeProfile(operative)}>
+            Edit operative
+          </button>
+
           <button
             className="button is-small"
             onClick={() => setshowDeleteOperativeModal(true)}>
@@ -49,6 +60,10 @@ const OperativeProfileModal = (props: Props) => {
           setshowDeleteOperativeModal(false)
         }}
         onClose={() => setshowDeleteOperativeModal(false)}
+      />
+      <EditOperativeProfileModal
+        editOperative={operativeProfile}
+        onClose={() => setOperativeProfile(undefined)}
       />
     </>
   )
