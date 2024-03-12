@@ -1,25 +1,26 @@
 import { useState } from 'react'
 import { Operative } from '../data/operatives'
+import EditOperative from '../component/EditOperative'
 
 interface Props {
-  editOperative?: Operative
+  operative?: Operative
   onClose: () => void
 }
 
 const EditOperativeProfileModal = (props: Props) => {
-  const { editOperative, onClose } = props
+  const { operative, onClose } = props
   const [showEditOperativemodal, setShowEditOperativemodal] = useState(false)
+  const [operativeProfile, setOperativeProfile] = useState<Operative>()
 
-  const isActive = editOperative ? 'is-active' : ''
+
+  const isActive = operative ? 'is-active' : ''
 
   if (!editOperative) return null
 
   return (
-    <div className={`modal ${isActive}`}>
-      <div className="modal-background" onClick={onClose} />
-      <div className="modal-content">edit info</div>
-      <button className="modal-close is-large" onClick={onClose} />
-    </div>
+    <EditOperative
+    
+    operative={operativeProfile}/>
   )
 }
 

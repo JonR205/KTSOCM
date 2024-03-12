@@ -62,7 +62,7 @@ const OperativeProfileModal = (props: Props) => {
         onClose={() => setshowDeleteOperativeModal(false)}
       />
       <EditOperativeProfileModal
-        editOperative={operativeProfile}
+        operative={operativeProfile}
         onClose={() => setOperativeProfile(undefined)}
       />
     </>

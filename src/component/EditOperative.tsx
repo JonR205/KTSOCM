@@ -1,24 +1,24 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Operative } from '../data/operatives'
 import useDataslateStore from '../stores/dataslateStore'
 
 interface Props {
-  editOperative: Operative
+  operative: Operative
 }
 
 const EditOperative = (props: Props) => {
-  const { editOperative } = props
-  const [name, setName] = useState(editOperative.name)
-  const [type, setType] = useState(editOperative.type)
-  const [specialisms, setSpecialisms] = useState(editOperative.specialisms)
-  const [xp, setXp] = useState(editOperative.xp)
-  const [rank, setRank] = useState(editOperative.rank)
+  const { operative } = props
+  const [name, setName] = useState(operative.name)
+  const [type, setType] = useState(operative.type)
+  const [specialisms, setSpecialisms] = useState(operative.specialisms)
+  const [xp, setXp] = useState(operative.xp)
+  const [rank, setRank] = useState(operative.rank)
   const [battleHonours, setBattleHonours] = useState(
-    editOperative.battleHonours,
+    operative.battleHonours,
   )
-  const [battleScars, setBattleScars] = useState(editOperative.battleScars)
-  const [restTally, setRestTally] = useState(editOperative.restTally)
-  const [notes, setNotes] = useState(editOperative.notes)
+  const [battleScars, setBattleScars] = useState(operative.battleScars)
+  const [restTally, setRestTally] = useState(operative.restTally)
+  const [notes, setNotes] = useState(operative.notes)
 
   const selectedOperatives = useDataslateStore(
     (state) => state.selectedDataslate?.operatives,
@@ -37,7 +37,7 @@ const EditOperative = (props: Props) => {
     const name = operativeNameRef.current?.value ?? ''
     const specialisms = operativespecialismsRef.current?.value ?? ''
     const xp = operativeXpRef.current?.value ?? ''
-    const rank = operativeRankRef.current?.value ?? ''
+    const rank = operativeRankRef.current?.value ?? useState(operative.rank)
     const battleHonours = operativeBattleHonoursRef.current?.value ?? ''
     const battleScars = operativeBattleScarsRef.current?.value ?? ''
     const restTally = operativeRestTallyRef.current?.value ?? ''
