@@ -1,4 +1,4 @@
-type Rank = 'Adept' | 'Veteran' | 'Ace' | 'Grizzled' | 'Revered'
+export type Rank = 'Adept' | 'Veteran' | 'Ace' | 'Grizzled' | 'Revered'
 export type Specialism = 'Combat' | 'Staunch' | 'Marksman' | 'Scout'
 export interface Operative {
   name?: string
