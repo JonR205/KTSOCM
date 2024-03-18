@@ -20,9 +20,15 @@ const EditOperativeProfileModal = (props: Props) => {
   return (
     <div>
       <div className={`modal ${isActive}`}>
+        <button className="delete" onClick={onClose} />
         <div className="modal-background" onClick={onClose} />
-        <div className="modal-content">
-          <EditOperativeComponent operative={operative} />
+        <div className="modal-card">
+          <header className="modal-card-head">
+            <p className="modal-card-title"> Operative </p>
+          </header>
+          <section className="modal-card-body">
+            <EditOperativeComponent operative={operative} />
+          </section>
         </div>
       </div>
     </div>
